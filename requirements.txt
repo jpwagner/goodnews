@@ -1,0 +1,32 @@
+# ==Framework==
+Django==1.9.8
+
+# ==Webserver==
+gunicorn==19.6.0
+
+# ==DB==
+django-redis==4.6.0
+
+# ==Scheduled Jobs==
+rq==0.6.0
+rq-scheduler==0.7.0
+
+# ==API==
+django-tastypie==0.13.3
+
+# ==Admin==
+django-grappelli==2.8.1
+
+# ==Utils==
+django-model-utils==2.6
+textblob==0.12.0
+newspaper==0.0.9.8
+
+# ==DEV TOOLS==
+django-extensions==1.7.1
+werkzeug==0.11.10
+ipython
+
+# ==HEROKU==
+dj-database-url==0.2.1
+whitenoise==3.2.2

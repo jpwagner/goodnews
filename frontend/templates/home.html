@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+	Good News!!
+{% endblock %}
+
+{% block head %}
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+	<br /><br /><br />
+    <div id="container">
+		<table id="article-table">
+			<thead>
+			    <tr>
+			        <th>Article Title</th>
+			        <th>Score</th>
+			    </tr>
+			</thead>
+			<tbody>
+				{% for article in articles %}
+				<tr>
+					<td><a href='{{ article.url }}/'>{{ article.title }}</a></td>
+					<td>{{ article.score }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/black-tie/jquery-ui.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+	<script>
+	$( function() {
+		var shiftsTable = $( "#article-table" ).DataTable({
+			paging: true,
+			searching: true,
+			order: [[ 1, "desc" ]],
+			iDisplayLength: 50,
+			info: false
+		});
+	});
+	</script>
+{% endblock %}

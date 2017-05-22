@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+
+.*.swp
+*.sqlite3
+*.sql
+
+*/settings/local.py
+*/settings/staging.py
+*/settings/production.py
+.env
+.idea

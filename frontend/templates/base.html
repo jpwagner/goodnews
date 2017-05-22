@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <title>{% block title%}{% endblock %}</title>
+
+    {% block head %} {% endblock %}
+
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+    {% csrf_token %}
+
+    {% block header %}
+        {% include "partials/header.html" %}
+    {% endblock %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% block body %}
+        <div class="container">
+            <div id="content" class="{% block content_id %} content {% endblock %}">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {% include "partials/footer.html" %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>
