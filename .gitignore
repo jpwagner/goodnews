@@ -10,3 +10,4 @@
 */settings/production.py
 .env
 .idea
+.coverage

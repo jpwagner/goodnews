@@ -23,6 +23,7 @@ textblob==0.12.0
 newspaper==0.0.9.8
 
 # ==DEV TOOLS==
+coverage==4.4.1
 django-extensions==1.7.1
 werkzeug==0.11.10
 ipython
