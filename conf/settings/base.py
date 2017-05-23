@@ -21,8 +21,8 @@ if env == "production":
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config()
     DATABASES['default']['CONN_MAX_AGE'] = 500
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # SECURE_SSL_REDIRECT = True
+    # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 else:
     DATABASES = os.getenv("DATABASES") or \
     {
