@@ -27,7 +27,7 @@ def run_article_scores():
 				words = TextBlob(content.text)
 				words.sentiment
 
-				new_article = gn_models.Article.objects.get_or_create(url=article['url'])
+				new_article, created = gn_models.Article.objects.get_or_create(url=article['url'])
 				new_article.title = article['title']
 				new_article.author = article['author']
 				new_article.description = article['description']
