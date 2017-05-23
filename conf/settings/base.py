@@ -13,6 +13,8 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 SECRET_KEY = os.getenv("SECRET_KEY") or '---------------------------------------------------------------'
 
+SCORE_THRESHOLD = 0.1
+
 # HEROKU specific
 if env == "production":
     import dj_database_url
