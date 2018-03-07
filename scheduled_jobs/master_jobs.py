@@ -12,9 +12,12 @@ from goodnews import models as gn_models
 
 
 def run_article_scores():
-	sources_json = json.loads(urllib.urlopen(settings.SOURCES_ENDPOINT + '?apiKey=%s&language=en' % settings.NEWS_API_KEY).read())
+	sources_json = json.loads(urllib.urlopen(settings.SOURCES_ENDPOINT + '?apiKey=%s&language=en&country=us' % settings.NEWS_API_KEY).read())
 
 	for source in sources_json['sources']:
+		if source ['category'] == 'sports':
+			continue
+
 		source_articles_endpoint = settings.ARTICLES_ENDPOINT + '?apiKey=%s&source=%s&sortBy=%s' % (settings.NEWS_API_KEY, source['id'], source['sortBysAvailable'][0])
 		articles_json = json.loads(urllib.urlopen(source_articles_endpoint).read())
 
