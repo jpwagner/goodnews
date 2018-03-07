@@ -31,7 +31,7 @@ if __name__ == '__main__':
 	#################################
 
 	scheduler.cron(
-		"0 * * * *",
+		"0 */2 * * *",
 		func=master_jobs.run_article_scores,
 		queue_name='default',
 		description='master'
